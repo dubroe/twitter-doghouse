@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :active_doghouses, class_name: 'Doghouse', conditions: ["is_released IS NULL"], order: 'created_at desc'
   has_many :request_from_twitters, dependent: :destroy
   
+  CACHE_KEY_PREFIX = 'twitter_user_'
+  
   # Create a new user from Twitter's omniauth response
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -29,19 +31,26 @@ class User < ActiveRecord::Base
   end
   
   # Get all of the ids of the Twitter Users that the user follows
-  def get_following_ids
-    following_ids = []
+  def get_following_hashes
+    following_hashes = []
     cursor = -1
     # Grabs 5000 at a time until the cursor is set to 0
     while cursor != 0
       followings = Twitter.friend_ids(nickname, cursor: cursor)
-      following_ids << followings.ids
+      followings.ids.each do |id|
+        following_hashes << {id: id, screen_name: Rails.cache.read("#{CACHE_KEY_PREFIX}#{id}")}
+      end
       cursor = followings.next_cursor
     end
-    following_ids.flatten
+    following_hashes
   end
   
   def self.get_twitter_screen_names(ids)
-    Twitter.users(ids).map {|user| user.screen_name}
+    screen_names = []
+    Twitter.users(ids).each do |user|
+      Rails.cache.write "#{CACHE_KEY_PREFIX}#{user.id}", user.screen_name
+      screen_names << user.screen_name
+    end
+    screen_names
   end
 end

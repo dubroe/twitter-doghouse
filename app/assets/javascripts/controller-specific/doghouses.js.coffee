@@ -145,7 +145,15 @@ $ ->
     # This is a much cleaner solution.
   # Only pull max 1000 otherwise we'll quickly hit twitter limit
   current_user_span = $('#current_user')
-  jQuery.getJSON current_user_span.attr('data-get-following-ids-path'), {user_id: current_user_span.attr('data-id')}, (following_ids) ->
+  jQuery.getJSON current_user_span.attr('data-get-following-hashes-path'), {user_id: current_user_span.attr('data-id')}, (following_hashes) ->
+    following_ids = []
+    cached_screen_names = []
+    for following_hash in following_hashes
+      if following_hash.screen_name
+        cached_screen_names.push following_hash.screen_name
+      else
+        following_ids.push following_hash.id
+    put_screen_names_in_select cached_screen_names
     index = 0
     while index < Math.min(following_ids.length, MAX_SCREEN_NAMES_TO_PULL)
       jQuery.getJSON current_user_span.attr('data-get-screen-names-path'), {ids: following_ids[index...(index+MAX_SCREEN_NAMES_PER_QUERY)]}, (screen_names) ->

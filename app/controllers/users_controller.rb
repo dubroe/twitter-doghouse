@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   # Get a list of ids of the people the user follows on twitter
-  def get_following_ids
+  def get_following_hashes
     user = User.find(params[:user_id])
-    following_ids = user.get_following_ids
+    following_hashes = user.get_following_hashes
     respond_to do |format|
-      format.json {render json: following_ids}
+      format.json {render json: following_hashes}
     end
   end
   
