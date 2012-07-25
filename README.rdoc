@@ -17,7 +17,7 @@ Social networking with Twitter is great except when the people you follow pollut
 
 == Production app
 
-- This app is currently being hosted by Heroku at http://twitter-doghouse.herokuapp.com/.
+- This app is currently being hosted by Heroku at http://twitterdog-house.herokuapp.com/.
   - If the live app fails, please check status.heroku.com to make sure that it's not because the server is down.
 
 == Deployment instructions

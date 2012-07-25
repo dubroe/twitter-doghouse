@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 %html
   %head
-    = content_tag :title, @title || 'twitter-doghouse'
+    = content_tag :title, @title || 'Twitter DogHouse'
     = stylesheet_link_tag 'application'
     = stylesheet_link_tag "controller-specific/#{controller_name}.css" if TwitterDoghouse::Application.assets.find_asset("controller-specific/#{controller_name}.css")
     = javascript_include_tag :application
