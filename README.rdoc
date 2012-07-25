@@ -1,6 +1,8 @@
 = Twitter DogHouse App
 
-Winner of this CloudSpokes Challenge with a score of 100%! http://www.cloudspokes.com/challenges/1540
+Winner of this CloudSpokes Challenge with a score of 100%!
+
+http://www.cloudspokes.com/challenges/1540
 
 Social networking with Twitter is great except when the people you follow pollute your feed with sponsored spam, political flamewars, and live-tweets of some show or event you don't care about. With this app you can unfollow them, tell them they are being annoying, and re-follow them after a specified amount of time.
 
