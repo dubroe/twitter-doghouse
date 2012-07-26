@@ -61,7 +61,7 @@ reset_new_doghouse_form = ->
 # Set the countdowns for all of the entries in the doghouse
 window.set_countdowns = ->
   $('.countdown').each ->
-    $(this).countdown {until: new Date($(this).attr('data-until-time') * 1000), format: 'dHM'}
+    $(this).countdown {until: new Date($(this).attr('data-until-time') * 1000), format: 'dHMS'}
 
 # Set up the actions for the doghouse edit dialog
 window.dialog_initializers = ->
