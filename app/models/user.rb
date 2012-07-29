@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   
   # Get all of the ids of the Twitter Users that the user follows
   def get_following_hashes
+    twitter_api_authenticate!
     following_hashes = []
     cursor = -1
     # Grabs 5000 at a time until the cursor is set to 0
@@ -46,6 +47,7 @@ class User < ActiveRecord::Base
   end
   
   def self.get_twitter_screen_names(ids)
+    twitter_api_authenticate!
     screen_names = []
     Twitter.users(ids).each do |user|
       Rails.cache.write "#{CACHE_KEY_PREFIX}#{user.id}", user.screen_name

@@ -8,6 +8,7 @@ module DoghousesHelper
   # Collection of canned enter and exit tweets for select boxes
   def canned_tweets_collection(canned_tweets)
     collection = canned_tweets.map {|canned_tweet| [canned_tweet.description, canned_tweet.id, {'data-text' => canned_tweet.text}]}
+    collection << ['-'*20, Doghouse::NONE_TWEET]
     collection << ['Write My Own', Doghouse::CUSTOM_TWEET]
     collection << ['None', Doghouse::NONE_TWEET]
     collection
