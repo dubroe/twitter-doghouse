@@ -47,7 +47,6 @@ class User < ActiveRecord::Base
   end
   
   def self.get_twitter_screen_names(ids)
-    twitter_api_authenticate!
     screen_names = []
     Twitter.users(ids).each do |user|
       Rails.cache.write "#{CACHE_KEY_PREFIX}#{user.id}", user.screen_name
