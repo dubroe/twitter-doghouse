@@ -1,5 +1,9 @@
 TwitterDoghouse::Application.routes.draw do
   
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :doghouses, except: [:new, :edit, :show] do
     post :release, on: :member 
   end

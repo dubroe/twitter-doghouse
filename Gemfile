@@ -18,6 +18,8 @@ gem "kaminari", "~> 0.13.0"
 gem "exception_notification", "~> 2.6.1"
 gem "dalli", "~> 2.0.5"
 gem "haml", "~> 3.1.6"
+gem "activeadmin", "~> 0.4.2", git: 'https://github.com/dubroe/active_admin.git'
+gem "formtastic", "~> 2.1.1"
 
 group :development do
   gem 'sqlite3'
