@@ -9,9 +9,7 @@ ActiveAdmin::Dashboards.build do
   #
     section "Recent Users" do
       table_for User.order("created_at desc").limit(25) do
-        column :id do |user|
-          link_to(user.id, admin_user_path(user))
-        end
+        column :id
         column :nickname
         column :created_at
         column :num_doghouses do |user|
@@ -23,12 +21,11 @@ ActiveAdmin::Dashboards.build do
     
     section "Recent Doghouses" do
       table_for Doghouse.order("created_at desc").limit(25) do
-        column :id do |doghouse|
-          link_to(doghouse.id, admin_doghouse_path(doghouse))
-        end
+        column :id
         column :user do |doghouse|
-          link_to(doghouse.user.nickname, admin_user_path(doghouse.user))
+          doghouse.user.nickname
         end
+        column :screen_name
         column :created_at
         column :duration_minutes
         column :is_released
