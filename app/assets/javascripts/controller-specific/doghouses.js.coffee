@@ -142,7 +142,6 @@ $ ->
   # Fill the screen name select box with people the user follows on twitter
   # Originally fetched this information in the controller but is was causing slow page load times.
     # This is a much cleaner solution.
-  # Only pull max 1000 otherwise we'll quickly hit twitter limit
   current_user_span = $('#current_user')
   jQuery.getJSON current_user_span.attr('data-get-following-hashes-path'), {user_id: current_user_span.attr('data-id')}, (following_hashes) ->
     following_ids = []
