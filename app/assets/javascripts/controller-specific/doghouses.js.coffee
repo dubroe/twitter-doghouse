@@ -3,7 +3,6 @@ tweet_pre_length = 0
 dialog_tweet_pre_length = 0
 MAX_TWEET_CHARS = 140
 MAX_SCREEN_NAMES_PER_QUERY = 100 # Enforced by twitter API
-MAX_SCREEN_NAMES_TO_PULL = 1000
 BITLY_LINK = ""
 
 # Appropriately show or hide the textarea for custom enter and exit tweets
@@ -155,7 +154,7 @@ $ ->
         following_ids.push following_hash.id
     put_screen_names_in_select cached_screen_names
     index = 0
-    while index < Math.min(following_ids.length, MAX_SCREEN_NAMES_TO_PULL)
+    while index < following_ids.length
       jQuery.getJSON current_user_span.attr('data-get-screen-names-path'), {ids: following_ids[index...(index+MAX_SCREEN_NAMES_PER_QUERY)]}, (screen_names) ->
         put_screen_names_in_select screen_names
       index += MAX_SCREEN_NAMES_PER_QUERY
