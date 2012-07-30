@@ -1,3 +1,3 @@
 ActiveAdmin.register User do
-  actions :index, :show
+  actions :index
 end

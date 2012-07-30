@@ -1,3 +1,3 @@
 ActiveAdmin.register RequestFromTwitter do
-  actions :index, :show
+  actions :index
 end

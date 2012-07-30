@@ -1,3 +1,3 @@
 ActiveAdmin.register Doghouse do
-  actions :index, :show
+  actions :index
 end
