@@ -129,6 +129,8 @@ $ ->
   
   # Reset the form after user is added to doghouse
   $('form#new_doghouse').live "ajax:beforeSend", (event,xhr,status) ->
+    # Small Easter Egg
+    $('body').addClass('upside-down') if $('#doghouse_screen_name').val() == 'TwitDoghouse'
     reset_new_doghouse_form()
     $('#create_doghouse_submit').attr 'disabled', true
     # Change the text on the submit button. Will be changed back when result is returned.
