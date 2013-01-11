@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '1.9.3'
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.11'
 gem 'pg'
 
 # Bundle edge Rails instead:
@@ -18,7 +18,7 @@ gem "kaminari", "~> 0.13.0"
 gem "exception_notification", "~> 2.6.1"
 gem "dalli", "~> 2.0.5"
 gem "haml", "~> 3.1.6"
-gem "activeadmin", "~> 0.4.2", git: 'https://github.com/dubroe/active_admin.git'
+gem "activeadmin", "~> 0.4.2", :git => 'https://github.com/dubroe/active_admin.git'
 gem "formtastic", "~> 2.1.1"
 
 group :development do
