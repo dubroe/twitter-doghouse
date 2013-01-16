@@ -14,7 +14,7 @@
               %td
                 .twitter-image-name
                   = link_to image_tag(doghouse.profile_image, class: 'twitter-image'), "#{TWITTER_ROOT}/#{doghouse.screen_name}", target: '_blank'
-                  <br />
+                  %br
                   %span= doghouse.screen_name
               %td.hide-phone= content_tag(:span, doghouse.created_at.to_time.to_i, class: 'utc-date-time')
               %td.countdown{data: {:'until-time' => doghouse.release_date_time.to_time.to_i}}/

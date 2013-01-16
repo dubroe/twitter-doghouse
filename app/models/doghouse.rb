@@ -165,7 +165,7 @@ class Doghouse < ActiveRecord::Base
     
     # Store the location of the profile image of the screen_name
     def set_profile_image
-      self.profile_image = Twitter.profile_image screen_name
+      self.profile_image = Twitter.user(screen_name).try(:profile_image_url)
     end
     
     # Called when a user wants to change the expire time of doghouse entry

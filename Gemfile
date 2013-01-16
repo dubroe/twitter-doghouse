@@ -8,8 +8,8 @@ gem 'pg'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "thin", "~> 1.3.1"
-gem "omniauth-twitter", "~> 0.0.11"
-gem "twitter", "~> 2.5.0"
+gem "omniauth-twitter", "~> 0.0.14"
+gem "twitter", "~> 4.4.4"
 gem "simple_form", "~> 2.0.2"
 gem "select2-rails", "~> 0.0.4"
 gem "delayed_job_active_record", "~> 0.3.2"
