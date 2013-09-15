@@ -33,7 +33,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-  gem "therubyracer", "~> 0.10.1"
+  gem "therubyracer", "~> 0.12.0"
   gem "less-rails-fontawesome", "~> 0.2.1"
   gem "less-rails-bootstrap", "~> 2.0.12"
 

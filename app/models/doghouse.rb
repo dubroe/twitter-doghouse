@@ -3,12 +3,13 @@
 class Doghouse < ActiveRecord::Base
   NONE_TWEET = 'none'
   CUSTOM_TWEET = 'custom'
+  MAX_MINUTES = 1000 * 24 * 24
   
   belongs_to :user
   belongs_to :request_from_twitter
   
   validates :screen_name, presence: true
-  validates :duration_minutes, numericality: {greater_than: 0 }
+  validates :duration_minutes, numericality: {greater_than: 0, less_than_or_equal_to: MAX_MINUTES}
   validates :duration_minutes_multiplier, numericality: {greater_than: 0 }, allow_blank: true
   validate :tweet_lengths_below_max
   
