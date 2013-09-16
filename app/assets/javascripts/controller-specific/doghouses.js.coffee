@@ -40,7 +40,7 @@ set_preview = (type) ->
 # Only enabled if a person is selected and the doghouse duration is greater than 0
 set_enabled_disabled_submit = ->
   duration_minutes = (Number) $('#doghouse_duration_minutes').val()
-  if $('#doghouse_screen_name').val() && duration_minutes > 0 && duration_minutes <= 1000
+  if $('#doghouse_screen_name').val() && duration_minutes > 0 && duration_minutes <= ((Number) $('#doghouse_duration_minutes').attr('max'))
     $('#create_doghouse_submit').removeAttr 'disabled'
   else
     $('#create_doghouse_submit').attr 'disabled', true
