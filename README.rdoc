@@ -1,5 +1,8 @@
 = Twitter DogHouse App
 
+[![Code Climate](https://codeclimate.com/github/dubroe/twitter-doghouse.png)](https://codeclimate.com/github/dubroe/twitter-doghouse)
+
+
 Winner of this CloudSpokes Challenge with a score of 100%!
 
 http://www.cloudspokes.com/challenges/1540
