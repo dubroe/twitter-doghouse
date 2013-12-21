@@ -148,18 +148,14 @@ class Doghouse < ActiveRecord::Base
     # Can either be an integer, meaning it's a canned tweet ID and we should get use text from that canned tweet, 'none' meaning there should be no tweet, 
       # or 'custom', meaning the user selected their own tweet.
     def handle_canned_tweets
-      if canned_enter_tweet_id
-        if canned_enter_tweet_id == NONE_TWEET
-          self.enter_tweet = ''
-        elsif canned_enter_tweet_id.to_i.nonzero?
-          self.enter_tweet = CannedTweet.find(canned_enter_tweet_id).text
-        end
-      end
-      if canned_exit_tweet_id
-        if canned_exit_tweet_id == NONE_TWEET
-          self.exit_tweet = ''
-        elsif canned_exit_tweet_id.to_i.nonzero?
-          self.exit_tweet = CannedTweet.find(canned_exit_tweet_id).text
+      %w(enter exit).each do |direction|
+        canned_tweet_id = send("canned_#{direction}_tweet_id")
+        if canned_tweet_id
+          if canned_tweet_id == NONE_TWEET
+            self.send("#{direction}_tweet=", '')
+          elsif canned_tweet_id.to_i.nonzero?
+            self.send("#{direction}_tweet=", CannedTweet.find(canned_tweet_id).text)
+          end
         end
       end
     end
