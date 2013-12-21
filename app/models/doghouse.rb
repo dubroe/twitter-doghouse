@@ -170,7 +170,10 @@ class Doghouse < ActiveRecord::Base
       # Must pass in minutes, hours and days (can be 0) in order to proceed
       if expires_in_minutes.present? && expires_in_hours.present? && expires_in_days.present?
         minutes_so_far = (Time.now - created_at) / SECONDS_IN_MINUTE
-        self.duration_minutes = minutes_so_far + expires_in_minutes.to_i + expires_in_hours.to_i * MINUTES_IN_HOUR + expires_in_days.to_i * MINUTES_IN_DAY
+        additional_minutes = expires_in_minutes.to_i
+        additional_minutes += expires_in_hours.to_i * MINUTES_IN_HOUR
+        additional_minutes += expires_in_days.to_i * MINUTES_IN_DAY
+        self.duration_minutes = minutes_so_far + additional_minutes
       end
     end
 end
