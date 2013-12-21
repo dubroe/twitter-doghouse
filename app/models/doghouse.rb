@@ -135,8 +135,8 @@ class Doghouse < ActiveRecord::Base
     
     # Validate that the enter and exit tweets are below 140 chars
     def tweet_lengths_below_max
-      errors.add(:enter_tweet, 'Too long') if enter_tweet and (enter_tweet.length + screen_name.length) > MAX_TWEET_CHARS
-      errors.add(:exit_tweet, 'Too long') if exit_tweet and (exit_tweet.length + screen_name.length) > MAX_TWEET_CHARS
+      errors.add(:enter_tweet, 'Too long') if enter_tweet && (enter_tweet.length + screen_name.length) > MAX_TWEET_CHARS
+      errors.add(:exit_tweet, 'Too long') if exit_tweet && (exit_tweet.length + screen_name.length) > MAX_TWEET_CHARS
     end
     
     # Convert the number of hours and days for a Doghouse entry into minutes
@@ -168,7 +168,7 @@ class Doghouse < ActiveRecord::Base
     # Called when a user wants to change the expire time of doghouse entry
     def update_duration_minutes
       # Must pass in minutes, hours and days (can be 0) in order to proceed
-      if expires_in_minutes.present? and expires_in_hours.present? and expires_in_days.present?
+      if expires_in_minutes.present? && expires_in_hours.present? && expires_in_days.present?
         minutes_so_far = (Time.now - created_at) / SECONDS_IN_MINUTE
         self.duration_minutes = minutes_so_far + expires_in_minutes.to_i + expires_in_hours.to_i * MINUTES_IN_HOUR + expires_in_days.to_i * MINUTES_IN_DAY
       end
