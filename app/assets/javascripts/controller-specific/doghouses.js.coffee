@@ -90,6 +90,8 @@ put_screen_names_in_select = (screen_names) ->
 
 # On page loaded function
 $ ->
+  alert "This site is currently not functioning correctly as certain required features on our hosting server Heroku have been turned off for cost reasons. Doghouse tweets are not being sent and people are not being re-followed when they are released from the doghouse. Please contact us if you have a fantastic money making scheme to make it worth paying the server costs."
+
   # Initialize the select2 plugin for the select user to doghouse selector
   $('#doghouse_screen_name').select2 {
     placeholder: "Loading Following..."
